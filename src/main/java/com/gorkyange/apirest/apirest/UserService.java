@@ -33,7 +33,18 @@ public class UserService {
 
     @Cacheable(value = DBCacheConfig.USERS_CACHE)
     public List<User> getUsers() {
+        simulateSlowService();
         return userRepository.findAll();
+    }
+
+
+    private void simulateSlowService() {
+        try {
+            long time = 5000L;
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            throw new IllegalStateException(e);
+        }
     }
 
 

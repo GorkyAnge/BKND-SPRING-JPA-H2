@@ -15,5 +15,5 @@ public class DBCacheConfig {
     public CacheManager cacheManager() {
         return new ConcurrentMapCacheManager(USERS_CACHE);
     }
-    
+
 }
